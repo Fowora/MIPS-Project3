@@ -111,3 +111,12 @@ next:
 	sub $sp, $sp,4 
 	sw $t6, 0($sp) 
 	move $t6,$t0  
+	lw $t4,0($sp) 
+	li $s1,0  
+	jal Subprogram2
+	lb $s0, ($t0) 
+	beq $s0, 0, jump 
+	beq $s0, 10, jump  
+	beq $s0,44, invalid_loop 
+	li $t2,0 
+	j beginning
