@@ -202,3 +202,14 @@ left:
 	la $a0, commas 
 	syscall
 	j finish
+
+invalid_print:
+	#prints an invaild input
+	li $v0, 4
+	la $a0, not_valid 
+	syscall	
+	j left 
+	
+exit:
+	li $v0, 10
+	syscall
