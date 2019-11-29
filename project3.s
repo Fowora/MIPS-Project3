@@ -73,3 +73,12 @@ vaild:
 	addi $t3, $t3,1 
 	mul $t2,$t2,$t7 
 	j loop 	
+
+invalid_loop:
+	#keeps track of how many invalid characters are in the substring
+	lb $s0, ($t0) 
+	beq $s0, 0, in_substring
+	beq $s0, 10, in_substring  	
+	addi $t0,$t0,1 	
+	beq $s0, 44, in_substring 
+	j invalid_loop 
