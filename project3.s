@@ -12,3 +12,14 @@ main :
 	syscall
 	jal Subprogram1 
 	
+jump:
+	#jumps to the print function
+	j print 
+	
+Subprogram1:
+	#checks the input
+	sub $sp, $sp,4 
+	sw $a0, 0($sp) 
+	lw $t0, 0($sp) 
+	addi $sp,$sp,4 
+	move $t6, $t0 
