@@ -98,3 +98,16 @@ in_substring:
 	li $t2,0 
 	j beginning
 	
+substring:
+	#checks if there was a space before a valid character in the substring
+	mul $t2,$t2,$t7 
+	
+	
+next:
+	#checks the characters in the substring
+	bgt $t2,0,in_substring 
+	bge $t3,5,in_substring 
+	addi $t1,$t1,1  	
+	sub $sp, $sp,4 
+	sw $t6, 0($sp) 
+	move $t6,$t0  
