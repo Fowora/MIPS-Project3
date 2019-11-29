@@ -23,3 +23,16 @@ Subprogram1:
 	lw $t0, 0($sp) 
 	addi $sp,$sp,4 
 	move $t6, $t0 
+
+beginning:
+	#check for spaces or tabs at the start and within the input
+	li $t2,0 
+	li $t7, -1 
+	lb $s0, ($t0) 
+	beq $s0, 0, in_substring 
+	beq $s0, 10, in_substring  
+	beq $s0, 44, invalid_loop 
+	beq $s0, 9, pass  
+	beq $s0, 32, pass 
+	move $t6, $t0 
+	j loop 
