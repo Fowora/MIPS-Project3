@@ -170,3 +170,18 @@ exponent:
 	mul $t9, $t9, 32 	
 	addi $t8, $t8, -1	
 	j exponent	
+
+combine:
+	#adds the values together
+	mul $s2, $t9, $s0	
+	add $s1,$s1,$s2		 
+	j continue
+
+done: 
+	#jumps back to substring
+	jr $ra	
+
+print:
+	#prints out the values
+	mul $t1,$t1,4 
+	add $sp, $sp $t1 
