@@ -185,3 +185,20 @@ print:
 	#prints out the values
 	mul $t1,$t1,4 
 	add $sp, $sp $t1 
+
+finish:	
+	#ends the program
+	sub $t1, $t1,4	
+	sub $sp,$sp,4 	
+	lw $s7, 0($sp)	
+	beq $s7,-1,invalid_print 
+	li $v0, 1
+	lw $a0, 0($sp) 
+	syscall
+left:	
+	#checks if there are any characters left 
+	beq $t1, 0,exit 
+	li $v0, 4
+	la $a0, commas 
+	syscall
+	j finish
