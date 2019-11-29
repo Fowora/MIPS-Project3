@@ -130,3 +130,16 @@ Subprogram2:
 	addi $t4,$t4,1	
 	j Subprogram3 
 	
+
+continue:
+	#stores the converted character
+	sw $s1,0($sp)	
+	j Subprogram2
+	
+Subprogram3:
+	#stores the amount of characters left to use as an exponent
+	move $t8, $t3	
+	li $t9, 1	
+	ble $s0, 57, number 
+	ble $s0, 86, uppercase
+	ble $s0, 118, lowercase
