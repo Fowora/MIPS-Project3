@@ -36,3 +36,15 @@ beginning:
 	beq $s0, 32, pass 
 	move $t6, $t0 
 	j loop 
+	
+pass:
+	#moves passed the spaces in the string
+	addi $t0,$t0,1 
+	j beginning 
+loop:
+	#goes through each character 
+	lb $s0, ($t0) 
+	beq $s0, 0, next
+	beq $s0, 10, next  	
+	addi $t0,$t0,1 	
+	beq $s0, 44, substring 	
