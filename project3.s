@@ -62,3 +62,14 @@ check_characters:
 	ble $s0, 96, invalid_loop 
 	ble $s0, 117, vaild 	
 	bge $s0, 118, invalid_loop 
+
+space:
+	#keeps track of spaces/tabs
+	addi $t2,$t2,-1 
+	j loop
+
+vaild:
+	#keeps track of how many valid characters are in the substring
+	addi $t3, $t3,1 
+	mul $t2,$t2,$t7 
+	j loop 	
