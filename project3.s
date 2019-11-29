@@ -120,3 +120,13 @@ next:
 	beq $s0,44, invalid_loop 
 	li $t2,0 
 	j beginning
+
+
+Subprogram2:
+	#checks how many characters are left to convert
+	beq $t3,0,done  
+	addi $t3,$t3,-1 
+	lb $s0, ($t4) 
+	addi $t4,$t4,1	
+	j Subprogram3 
+	
