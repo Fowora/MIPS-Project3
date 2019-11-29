@@ -82,3 +82,19 @@ invalid_loop:
 	addi $t0,$t0,1 	
 	beq $s0, 44, in_substring 
 	j invalid_loop 
+
+
+in_substring:
+	#keeps track of the amount of characters in the substring 
+	addi $t1,$t1,1 	
+	sub $sp, $sp,4
+	sw $t7, 0($sp) 
+	move $t6,$t0  
+	lb $s0, ($t0) 
+	beq $s0, 0, jump
+	beq $s0, 10, jump 
+	beq $s0,44, invalid_loop 
+	li $t3,0 
+	li $t2,0 
+	j beginning
+	
