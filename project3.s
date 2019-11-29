@@ -143,3 +143,17 @@ Subprogram3:
 	ble $s0, 57, number 
 	ble $s0, 86, uppercase
 	ble $s0, 118, lowercase
+
+number:
+	#converts the bits to intergers
+	sub $s0, $s0, 48	 
+	beq $t3, 0, combine	
+	li $t9, 32		
+	j exponent
+	
+uppercase:
+	#converts the bits to uppercase letters
+	sub $s0, $s0, 55 
+	beq $t3, 0, combine 
+	li $t9, 32
+	j exponent
